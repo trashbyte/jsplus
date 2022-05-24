@@ -1,0 +1,10 @@
+{
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "ES2021",
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "inlineSourceMap": true
+  }
+}
