@@ -4,8 +4,9 @@
 const gulp = require('gulp')
 const glob = require('glob')
 const tsify = require('tsify')
-const browserify = require('browserify')
+const ts = require('gulp-typescript')
 const source = require('vinyl-source-stream')
+const browserify = require('browserify')
 const buffer = require('vinyl-buffer')
 const terser = require('gulp-terser')
 
@@ -41,5 +42,17 @@ function buildMin() {
 }
 exports.buildMin = buildMin
 
+function buildDefs() {
+  return gulp.src("./src/**/*.ts")
+    .pipe(ts({
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "outFile": "jsplus.d.ts",
+      "lib": ["es2021","dom"]
+    }))
+    .pipe(gulp.dest(OUTPUT_DIR))
+}
+exports.buildDefs = buildDefs
+
 exports.watch = gulp.series(build, watch)
-exports.default = gulp.series(build, buildMin)
+exports.default = gulp.series(build, buildMin, buildDefs)
