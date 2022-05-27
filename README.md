@@ -6,7 +6,10 @@ A small pile of tools I made for my own use on every project where I didn't want
 
 ### Build
 
-`gulp build` to build the unminified dev file, `gulp buildMin` to build the minified file, `gulp` (default) to build both, `gulp watch` to auto-rebuild the dev file on source changes.
+ * `yarn gulp build` will build the unminified dev file and the minified version, along with sourcemaps
+ * `yarn gulp buildDefs` will generate the typescript definitions
+ * `yarn gulp` (the default task) will do both
+ * `yarn gulp watch` will auto-rebuild on source changes
 
 ### License
 

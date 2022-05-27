@@ -13,9 +13,11 @@ declare interface Array<T> {
     remove(elem: T): void;
     removeExact(elem: T): void;
 }
-declare interface Window {
-    $: any;
-}
+declare var $: {
+    onload: (handler: (e: Event) => void) => void;
+    q: (selector: string) => HTMLElement;
+    qa: (selector: string) => NodeList;
+};
 declare const SVGNS = "http://www.w3.org/2000/svg";
 declare class Elem {
     tagName: string;
